@@ -19,6 +19,9 @@ ENV LC_ALL en_US.UTF-8
 # Regenerate SSH host keys.
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
+# set root password
+RUN echo 'root:nzedb' | chpasswd
+
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
